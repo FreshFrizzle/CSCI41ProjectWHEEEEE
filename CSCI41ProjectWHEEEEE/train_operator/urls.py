@@ -6,4 +6,4 @@ urlpatterns = [
 ]
 
 # This might be needed, depending on your Django version
-app_name = "<appname>"
+app_name = "train_operator"
