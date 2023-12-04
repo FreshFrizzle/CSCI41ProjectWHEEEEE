@@ -1,38 +1,32 @@
 from django.db import models
 
 # Create your models here.
-class Maintenance(models.Model):
-    Maintenance_Num = models.AutoField(primary_key=True, max_length=5)
-
-
-class Maintenance_Logs(models.Model):
-    Maintenance_Num = models.ForeignKey(
-        Maintenance,
-        on_delete=models.CASCADE,
-    )
-    Train_ID = models.OneToOneField(
-        Train,
-        on_delete=models.CASCADE,
+class TRAIN(models.Model):
+    Train_ID = models.CharField(primary_key=True, max_length=6, default="000001")
+    Model = models.OneToOneField(
+        
     )
 
-class Maintenance_Task(models.Model):
-    Maintenance_Num = models.ForeignKey(
-        Maintenance,
-        on_delete=models.CASCADE,
-    )
+class TRAIN_MODEL(models.Model):
+    pass
 
-    Task_ID = models.CharField(primary_key=True, max_length=5, default="00001")  
+class ROUTE(models.Model):
+    pass
 
-class Task(models.Model):
-    Task_ID = models.ForeignKey(
-        Maintenance_Task,
-        on_delete=models.CASCADE,
-    )
-    Task_Name = models.CharField(primary_key=False, max_length=25, default="inspection")
-    Crew_In_Charge = models.CharField(primary_key=False, max_length=25, default="J. Doe")
-    Condition = models.CharField(primary_key=False, max_length=25, default="Horrible")
+class S_SERIES(models.Model):
+    pass
 
+class A_SERIES(models.Model):
+    pass
 
+class LOCAL(models.Model):
+    pass
 
+class INTER_TOWN(models.Model):
+    pass
 
+class S_SERIES_ROUTING(models.Model):
+    pass
 
+class A_SERIES_ROUTING(models.Model):
+    pass
