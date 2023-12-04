@@ -1,9 +1,10 @@
 from django.db import models
 from datetime import date, time
 from django.core.validators import MaxValueValidator, MinValueValidator 
+from django.db.models import Sum
 
 # Create your models here.
-class Customer(models.Model):
+class CUSTOMER(models.Model):
     Customer_ID = models.CharField(primary_key=True, max_length=4, default="0001")
     Last_Name = models.CharField(primary_key=False, max_length=25, default="Doe")
     Given_Name = models.CharField(primary_key=False, max_length=25, default="John")
@@ -17,37 +18,65 @@ class Customer(models.Model):
     ]
     Gender = models.CharField(primary_key=False, choices=genderChoices, default="Male")
 
-class Ticket(models.Model):
+class TICKET(models.Model):
     Ticket_number = models.CharField(primary_key=True, max_length=4, default="0001")
+    Customer_ID = models.OneToOneField(
+        CUSTOMER,
+        on_delete=models.CASCADE,
+    )
     Date = models.DateField(auto_now=False,auto_now_add=False,default=date(1970,1,1))
-    Total_Cost = models.IntegerField(default=0)
 
-class Trip(models.Model):
-    Trip_Num = models.CharField(primary_key=True, max_length=5, default="00001")
-    Train_Num = models.ManyToManyField(Train) #will fix later in the train models
+    @property
+    def Total_Cost(self):
+        # gather all trips connected to this ticket 
+        tripsWithTicket = TICKET.TRIP_LOGS_set.all()
+
+        trips_total_cost = tripsWithTicket.objects.all().aggregate(Sum('Cost'))['Cost']
+        return trips_total_cost
+
+class TRIP(models.Model):
+    Trip_ID = models.CharField(primary_key=True, max_length=5, default="00001")
+    Train_ID = models.ForeignKey(
+        TRAIN,
+        on_delete=models.CASCADE,
+        ) 
+    Station_ID = models.ForeignKey(
+        STATION,
+        on_delete=models.CASCADE,
+    )
+    Route_ID = models.ForeignKey(
+        ROUTE,
+        on_delete=models.CASCADE,
+    )
     Origin = models.CharField(primary_key=False, max_length=25, default="Allies’ Enclave")
-    Destination = models.CharField(primary_key=False, max_length=25, default="Cauldron Pool")
+    Destination = models.CharField(primary_key=False, max_length=25, default="Dancing Lawn")
     Departure = models.TimeField(auto_now=False, auto_now_add=False, default=time(0,0))
     Arrival = models.TimeField(auto_now=False, auto_now_add=False, default=time(0,0))
-    Duration = Arrival-Departure #will ask Yso about this
     Cost = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(99)])
 
-class Station(models.Model):
+    @property
+    def Duration(self):
+        return self.Arrival - self.Departure
+
+    def get_absolute_url(self):
+        return '{}'.format(self.pk)
+        
+
+class TRIP_LOGS(models.Model):
+    Trip_ID = models.ForeignKey(
+        TRIP,
+        on_delete=models.CASCADE,
+    )
+
+    Ticket_Num = models.ForeignKey(
+        TICKET,
+        on_delete=models.CASCADE,
+    )
+    pass
+
+
+
+class STATION(models.Model):
     Station_ID = models.CharField(primary_key=True, max_length=25, default="AAA")
-    station_locations = [
-        ("BD", "Beaver's Dam"),
-        ("TLP", "The Lamp Post"),
-        ("AE", "Allies' Enclave"),
-        ("TW", "The Wardrobe"),
-        ("MT", "Mr. Tumms"),
-        ("AC", "Aslan's Camp"),
-        ("WC", "Witch's Camp"),
-        ("CP", "Cauldron Pool"),
-        ("TST", "The Stone Table"),
-        ("FC", "Father Christmas"),
-        ("DL", "Dancing Lawn"),
-        ("CT", "Cherry Tree"),
-        ("A", "Anvard"),
-    ]
-    Location = models.CharField(primary_key=False, max_length=25, choices=station_locations, default=("BD", "Beaver's Dam"))
+    Location = models.CharField(primary_key=False, max_length=25, default=("BD", "Beaver's Dam"))
     
