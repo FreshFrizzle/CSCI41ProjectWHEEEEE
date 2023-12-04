@@ -57,9 +57,6 @@ class TRIP(models.Model):
     @property
     def Duration(self):
         return self.Arrival - self.Departure
-
-    def get_absolute_url(self):
-        return '{}'.format(self.pk)
         
 
 class TRIP_LOGS(models.Model):
