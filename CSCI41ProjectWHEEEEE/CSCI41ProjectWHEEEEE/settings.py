@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'customer_service',
     'train_operator',
+    'train_maintenance',
 ]
 
 MIDDLEWARE = [
