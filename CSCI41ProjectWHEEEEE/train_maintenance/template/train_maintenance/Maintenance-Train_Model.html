@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %} Maintenance of each train model {% endblock %}
+
+{% block heading %} <h1 class="pageTitle"> Maintenace Logs for each train model </h1> {% endblock %}
+
+{% block content %}
+    <table>
+        <tr>
+            <td colspan=10> {{trainModel.Model}} </td>
+        </tr>
+        <tr>
+            <td>
+                Max. Speed
+            </td>
+            <td>
+                No. of Seats
+            </td>
+            <td>
+                No. of Toilets
+            </td>
+            <td>
+                Has Reclining Seats 
+            </td>
+            <td>
+                Has Folding Tables
+            </td>
+            <td>
+                Has Disability Access
+            </td>
+            <td>
+                Has Luggage Storage
+            </td>
+            <td>
+                Has Vending Machines
+            </td>
+            <td>
+                Has Food Service
+            </td>
+            <td>
+                Train Type
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{trainModel.Max_Speed}}
+            </td>
+            <td>
+                {{trainModel.No_of_Seats}}
+            </td>
+            <td>
+                {{trainModel.No_of_Toilets}}
+            </td>
+            <td>
+                {{trainModel.Reclining_Seats}} 
+            </td>
+            <td>
+                {{trainModel.Folding_Tables}}
+            </td>
+            <td>
+                {{trainModel.Disability}}
+            </td>
+            <td>
+                {{trainModel.Luggage_Storage}}
+            </td>
+            <td>
+                {{trainModel.Vending_Machines}}
+            </td>
+            <td>
+                {{trainModel.Food_Service}}
+            </td>
+            <td>
+                {{trainModel.Train_Type}}
+            </td>
+        </tr>
+    </table>
+
+
+    <ul style='list-style-type:square;'>
+        {% for maintenance in Maintenance %}
+        <li> <a href="{{ maintenance.get_absolute_url }}"> {{ maintenance.maintenance_num }} </a> </li>
+        {% endfor %}
+    </ul>
+        
+
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}

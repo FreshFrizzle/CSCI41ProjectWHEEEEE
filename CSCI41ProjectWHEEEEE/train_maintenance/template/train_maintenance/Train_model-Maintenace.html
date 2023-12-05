@@ -2,12 +2,12 @@
 
 {% block title %} Maintenance of each train model {% endblock %}
 
-{% block heading %} <h1 class="pageTitle"> Maintenace Logs for each train model </h1> {% endblock %}
+{% block heading %} <h1 class="pageTitle"> Maintenace Logs </h1> {% endblock %}
 
 {% block content %}
     <ul style='list-style-type:square;'>
-        {% for trainModel in trains %}
-        <li> <a href="{{ trainModel.get_absolute_url }}"> {{ trainModel.Model }} </a> </li>
+        {% for maintenance in Maintenance %}
+        <li> <a href="{{ maintenance.get_absolute_url }}"> {{ maintenance.maintenance_num }} </a> </li>
         {% endfor %}
     </ul>
 {% endblock %}

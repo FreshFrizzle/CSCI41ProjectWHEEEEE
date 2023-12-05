@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Train Master List {% endblock %}
+
+{% block heading %} <h1 class="pageTitle"> Train Master List </h1> {% endblock %}
+
+{% block content %}
+    <table>
+        {% for train in trains %}
+        <tr>
+            <td> <a href=""> {{train.Model}} </a> </td>
+            <td>{{train.Max_Speed}}</td>
+            <td>{{train.No_of_Seats}} </td>
+            <td>{{train.No_of_Toilets}}</td>
+            <td>{{train.Reclining_Seats}}</td>
+            <td>{{train.Folding_Tables}}</td>
+            <td>{{train.Disability}}</td>
+            <td>{{train.Luggage_Storage}}</td>
+            <td>{{train.Vending_Machines}}</td>
+            <td>{{train.Food_Service}}</td>
+            <td>{{train.Train_Type}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
