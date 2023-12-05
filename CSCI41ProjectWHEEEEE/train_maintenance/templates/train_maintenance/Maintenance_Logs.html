@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Maintenance Logs {% endblock %}
+
+{% block heading %} <h1 class="pageTitle"> Maintenance Logs </h1> {% endblock %}
+
+{% block content %}
+    <ul style='list-style-type:square;'>
+        {% for maintenance in Maintenance %}
+        <li> <a href="{{ maintenance.get_absolute_url }}/tasks"> {{ maintenance.maintenance_num }} </a> </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}

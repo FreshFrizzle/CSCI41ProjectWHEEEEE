@@ -3,7 +3,7 @@ from .views import MaintenanceListView, TrainTasksView, TaskMasterListView, Trai
 
 urlpatterns = [
     path('maintenance/', MaintenanceListView, name='homeView'),
-    path('trains/<int:pk>/tasks', TrainTasksView.as_view(), name='TrainTaskView'),
+    path('maintenance/<int:pk>/tasks', TrainTasksView.as_view(), name='TrainTaskView'),
     path('tasks/', TaskMasterListView, name='TaskMasterListView'),
     path('trains/', TrainMasterListView, name='TrainMasterListView'),
     path('trains/<int:pk>/maintenance', TrainMaintenanceView.as_view(), name='TrainMaintenanceView'),

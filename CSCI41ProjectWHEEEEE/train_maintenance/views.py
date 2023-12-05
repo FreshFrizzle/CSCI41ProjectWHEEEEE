@@ -1,13 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from train_operator.models import TRAIN_MODEL
+from train_operator.models import TRAIN
 from train_maintenance.models import TASK, MAINTENANCE
 # Create your views here.
 
 
 def MaintenanceListView(request):
-    return render(request, 'train_maintenance/Train_model-Maintenace.html', {"Maintenance":MAINTENANCE.objects.all()})
+    return render(request, 'train_maintenance/Maintenance_Logs.html', {"Maintenance":MAINTENANCE.objects.all()})
 
 class TrainTasksView(View):
     #list down the task for the given train model
@@ -26,7 +26,7 @@ def TaskMasterListView(request):
     return render(request, 'train_maintenance/Task_masterlist.html', {"tasks":TASK.objects.all()})
 
 def TrainMasterListView(request):
-    return render(request, 'train_maintenance/Task_masterlist.html', {"train":TRAIN_MODEL.objects.all()})
+    return render(request, 'train_maintenance/Train_masterlist.html', {"trains":TRAIN.objects.all()})
 
 class TrainMaintenanceView(View):
     def get(self, request, maintenance_ID=None, *args, **kwargs):
