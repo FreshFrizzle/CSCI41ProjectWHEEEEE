@@ -1,0 +1,132 @@
+body {
+	font-family: "Franklin Gothic";
+}
+
+ul {
+	padding: 0 0;
+	text-align: center;
+}
+
+#header {
+	text-align: center;
+	width: 100%;
+	font-family: "Franklin Gothic Medium";
+	font-size: 40px;
+	background-color: #444;
+	color: white;
+	margin: 0;
+	padding: 50px 0;
+	text-shadow: 0 0 1px currentColor;
+	
+	transition: all 0.3s;
+}
+
+.subheader {
+	text-align: center;
+	font-family: "Franklin Gothic Medium";
+	font-size: 28px;
+	margin: 6px 0;
+	padding: 6px 0;
+	background-color: #CCE;
+	text-shadow: 0 0 1px currentColor;
+}
+
+.detail-header {
+	text-align: center;
+	font-family: "Franklin Gothic Medium";
+	font-size: 24px;
+}
+
+.detail-additionalinfo {
+	text-align: center;
+	font-family: "Franklin Gothic Medium";
+	font-size: 14px;
+	margin: 6px 0;
+}
+
+.detail-body {
+	text-align: center;
+	font-size: 16px;
+	font-family: "Franklin Gothic";
+}
+
+.separator-bar {
+	height: 1px;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+	margin: 20px 0;
+}
+
+.object-cell {
+	border-radius: 6px;
+	background-color: #F0F0F0;
+	padding: 10px;
+	margin: 10px;
+	list-style: none;
+	
+	transition: all 0.3s;
+}
+
+.object-cell:hover {
+	background-color: #DDE;
+}
+
+.object-title {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.object-subtitle {
+	font-size: 14px;
+}
+
+a {
+	text-decoration: none;
+	
+	transition: 0.3s;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: black;
+}
+
+input {
+	font-family: "Franklin Gothic";
+	width: 75%;
+}
+
+.form-fields {
+	margin: auto;
+}
+
+.action-button {
+	margin: auto;
+	padding: 6px;
+	display: block;
+	text-align: center;
+	width: 50%;
+	background-color: #F0F0F0;
+	font-family: "Franklin Gothic";
+	font-size: 16px;
+	border-radius: 6px;
+	
+	transition: 0.3s;
+}
+
+.action-button:hover {
+	background-color: #CCE;
+	cursor: pointer;
+}
+
+#footer {
+	display: flex;
+    justify-content: center;
+}
+
+#footer > a {
+	padding: 10px 10px;
+}
