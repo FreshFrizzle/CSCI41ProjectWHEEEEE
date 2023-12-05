@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %} Task Master List {% endblock %}
+
+{% block heading %} <h1 class="pageTitle"> Task Master List </h1> {% endblock %}
+
+{% block content %}
+    <table>
+        {% for trainModel in trains %}
+        <tr>
+            <td> {{task.Task_id}} </td>
+            <td> {{task.Task_name}} </td>
+            <td> {{task.Date}} </td>
+            <td> {{task.Crew_in_charge}} </td>
+            <td> {{task.Condition}} </td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}

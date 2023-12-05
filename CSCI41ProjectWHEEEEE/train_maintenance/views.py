@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
 from CSCI41ProjectWHEEEEE.train_operator.models import TRAIN_MODEL
+from CSCI41ProjectWHEEEEE.train_maintenance.models import TASK
 # Create your views here.
 
 
@@ -20,4 +21,7 @@ class TrainMaintenanceTasksView(View):
         tasks = maintenance_tasks.task_id.all()
 
         return render(request, 'train_maintenance/Task-Train_Model.html', {"train_model":train_model, "tasks":tasks})
+
+def TaskMasterListView(request):
+    return render(request, 'train_maintenance/Task_masterlist.html', {"tasks":TASK.objects.all()})
 
