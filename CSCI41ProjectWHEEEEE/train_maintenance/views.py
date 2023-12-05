@@ -30,7 +30,7 @@ class TrainTasksView(View):
         taskHere = TASK.objects.filter(Task_id__in=task_ids)
         
         print(taskHere)
-        print(MAINTENANCE_LOGS.objects.all())
+        print(trainMhere)
 
         return render(request, 'train_maintenance/Task-Train_Model.html', {"tasks":taskHere, "train":trainMhere[0]})
 
@@ -46,6 +46,8 @@ class TrainMaintenanceView(View):
         print(pk)
      
         trainHere = TRAIN.objects.filter(Model__exact=pk)
+        modelss = trainHere.values_list('Model', flat=True)
+        trainMhere = TRAIN_MODEL.objects.filter(Model__in=modelss)
         print(trainHere)
         mlogs = MAINTENANCE_LOGS.objects.filter(train_id__in=trainHere.values_list('Train_ID', flat=True))
         print(mlogs)
@@ -53,5 +55,5 @@ class TrainMaintenanceView(View):
         print(maintenances)
         
 
-        return render(request, 'train_maintenance/Maintenance-Train_Model.html', {"trainModel":trainHere[0], "Maintenance":maintenances})
+        return render(request, 'train_maintenance/Maintenance-Train_Model.html', {"trainModel":trainMhere[0], "Maintenance":maintenances})
 
