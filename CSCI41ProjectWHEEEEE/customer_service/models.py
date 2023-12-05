@@ -2,7 +2,7 @@ from django.db import models
 from datetime import date, time
 from django.core.validators import MaxValueValidator, MinValueValidator 
 from django.db.models import Sum
-from CSCI41ProjectWHEEEEE.train_operator.models import TRAIN, ROUTE
+from train_operator.models import TRAIN, ROUTE
 
 # Create your models here.
 class CUSTOMER(models.Model):
@@ -17,7 +17,7 @@ class CUSTOMER(models.Model):
         ("Non-binary","Non-binary"),
         ("Other","Other")
     ]
-    Gender = models.CharField(primary_key=False, choices=genderChoices, default="Male")
+    Gender = models.CharField(primary_key=False, max_length = 25, choices=genderChoices, default="Male")
 
 
 class STATION(models.Model):
