@@ -18,6 +18,12 @@ class CUSTOMER(models.Model):
     ]
     Gender = models.CharField(primary_key=False, choices=genderChoices, default="Male")
 
+
+class STATION(models.Model):
+    Station_ID = models.CharField(primary_key=True, max_length=25, default="AAA")
+    Location = models.CharField(primary_key=False, max_length=25, default=("BD", "Beaver's Dam"))
+
+
 class TICKET(models.Model):
     Ticket_number = models.CharField(primary_key=True, max_length=4, default="0001")
     Customer_ID = models.OneToOneField(
@@ -71,9 +77,4 @@ class TRIP_LOGS(models.Model):
     )
     pass
 
-
-
-class STATION(models.Model):
-    Station_ID = models.CharField(primary_key=True, max_length=25, default="AAA")
-    Location = models.CharField(primary_key=False, max_length=25, default=("BD", "Beaver's Dam"))
     
