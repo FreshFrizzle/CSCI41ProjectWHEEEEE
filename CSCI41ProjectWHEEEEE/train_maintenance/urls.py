@@ -1,8 +1,9 @@
 from django.urls import path
-from .views import index
+from .views import MaintenanceListView, TrainMaintenanceTasksView
 
 urlpatterns = [
-    path('', index, name='index'),
+    path('', MaintenanceListView, name='homeView'),
+    path('<int:pk>/maintenanceTasks', TrainMaintenanceTasksView, name='TaskView'),
 ]
 
 # This might be needed, depending on your Django version

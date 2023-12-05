@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %} Maintenance of each train model {% endblock %}
+
+{% block heading %} <h1 class="pageTitle"> Maintenace Logs for each train model </h1> {% endblock %}
+
+{% block content %}
+    <ul style='list-style-type:square;'>
+        {% for trainModel in trains %}
+        <li> <a href="{{ trainModel.get_absolute_url }}"> {{ trainModel.Model }} </a> </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}

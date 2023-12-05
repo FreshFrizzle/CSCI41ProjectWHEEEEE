@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block title %} Maintenance of each train model {% endblock %}
+
+{% block heading %} <h1 class="pageTitle"> Maintenace Logs for each train model </h1> {% endblock %}
+
+{% block content %}
+    <table>
+        <tr>
+            <td colspan=10> {{trainModel.Model}} </td>
+        </tr>
+        <tr>
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Max_Speed
+            </td>
+            <td>
+                No_of_Seats
+            </td>
+            <td>
+                No_of_Toilets
+            </td>
+            <td>
+                Reclining_Seats 
+            </td>
+            <td>
+                Folding_Tables
+            </td>
+            <td>
+                Disability
+            </td>
+            <td>
+                Luggage_Storage
+            </td>
+            <td>
+                Vending_Machines
+            </td>
+            <td>
+                Food_Service
+            </td>
+            <td>
+                Train_Type
+            </td>
+        </tr>
+    </table>
+
+    <table> 
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% for trainModel in trains %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
