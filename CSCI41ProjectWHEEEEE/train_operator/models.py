@@ -20,6 +20,9 @@ class TRAIN_MODEL(models.Model):
     Food_Service = models.BooleanField(primary_key=False,default=False)
     Train_Type = models.CharField(primary_key=False,max_length=2, default="A")
 
+    def get_absolute_url(self):
+        return '{}'.format(self.pk)
+
 class TRAIN(models.Model):
     Train_ID = models.CharField(primary_key=True, max_length=6, default="000001")
     Model = models.OneToOneField(

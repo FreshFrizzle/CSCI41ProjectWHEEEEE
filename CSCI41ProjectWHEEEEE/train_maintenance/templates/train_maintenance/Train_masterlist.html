@@ -40,7 +40,8 @@
         </tr>
         {% for train in train_model %}
         <tr>
-            <td> <a href=""> {{train.Model}} </a> </td>
+            <td> <a href="{{ train.get_absolute_url }}/maintenance"> {{train.Model}} </a> </td>
+
             <td>{{train.Max_Speed}}</td>
             <td>{{train.No_of_Seats}} </td>
             <td>{{train.No_of_Toilets}}</td>

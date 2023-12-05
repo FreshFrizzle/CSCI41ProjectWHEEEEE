@@ -75,10 +75,10 @@
         </tr>
     </table>
 
-
+    <h3> maintenance log of this particular train </h3>
     <ul style='list-style-type:square;'>
         {% for maintenance in Maintenance %}
-        <li> <a href=" /{{ maintenance.get_absolute_url }}/maintenance"> {{ maintenance.maintenance_num }} </a> </li>
+        <li> <a href="/train_maintenance/maintenance/{{ maintenance.get_absolute_url }}/tasks"> {{ maintenance.maintenance_num }} </a> </li>
         {% endfor %}
     </ul>
         

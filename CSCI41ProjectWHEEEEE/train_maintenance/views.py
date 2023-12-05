@@ -43,13 +43,15 @@ def TrainMasterListView(request):
 class TrainMaintenanceView(View):
     def get(self, request, pk):
 
-        #get tasks related to the train_model
         print(pk)
-        mtrain = MAINTENANCE_LOGS.objects.filter(maintenance_num=pk)
-        print(list(mtrain))
+     
+        trainHere = TRAIN.objects.filter(Model__exact=pk)
+        print(trainHere)
+        mlogs = MAINTENANCE_LOGS.objects.filter(train_id__in=trainHere.values_list('Train_ID', flat=True))
+        print(mlogs)
+        maintenances = MAINTENANCE.objects.filter(maintenance_num__in=mlogs.values_list('maintenance_num', flat=True))
+        print(maintenances)
+        
 
-        #get tasks related to the train_model
-        maintenace_train = mtrain.select_related('train_id')[0]
-
-        return render(request, 'train_maintenance/Task-Train_Model.html', {"train_model":maintenace_train, "Maintenance":maintenace_train})
+        return render(request, 'train_maintenance/Maintenance-Train_Model.html', {"trainModel":trainHere[0], "Maintenance":maintenances})
 
