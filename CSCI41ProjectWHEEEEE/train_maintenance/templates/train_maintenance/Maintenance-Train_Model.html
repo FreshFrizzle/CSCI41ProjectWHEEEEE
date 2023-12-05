@@ -78,7 +78,7 @@
 
     <ul style='list-style-type:square;'>
         {% for maintenance in Maintenance %}
-        <li> <a href="{{ maintenance.get_absolute_url }}"> {{ maintenance.maintenance_num }} </a> </li>
+        <li> <a href=" /{{ maintenance.get_absolute_url }}/maintenance"> {{ maintenance.maintenance_num }} </a> </li>
         {% endfor %}
     </ul>
         

@@ -5,7 +5,9 @@ from train_operator.models import TRAIN
 # Create your models here.
 class MAINTENANCE(models.Model):
     maintenance_num = models.CharField(primary_key=True, max_length=4, default="0001")
-    pass
+    
+    def get_absolute_url(self):
+        return '{}'.format(self.pk)
 
 #for maintenance in MAINTENANCE.objects.raw("SELECT * FROM train_maintenance_maintenance")
 

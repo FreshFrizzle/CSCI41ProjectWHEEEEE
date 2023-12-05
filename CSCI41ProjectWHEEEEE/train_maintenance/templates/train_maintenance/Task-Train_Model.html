@@ -5,10 +5,9 @@
 {% block heading %} <h1 class="pageTitle"> Maintenace Logs for each train model </h1> {% endblock %}
 
 {% block content %}
+
+    <h2> {{train.Model}} </h2>
     <table>
-        <tr>
-            <td colspan=10> {{trainModel.Model}} </td>
-        </tr>
         <tr>
             <td>
                 Max. Speed
@@ -43,34 +42,34 @@
         </tr>
         <tr>
             <td>
-                {{trainModel.Max_Speed}}
+                {{train.Max_Speed}}
             </td>
             <td>
-                {{trainModel.No_of_Seats}}
+                {{train.No_of_Seats}}
             </td>
             <td>
-                {{trainModel.No_of_Toilets}}
+                {{train.No_of_Toilets}}
             </td>
             <td>
-                {{trainModel.Reclining_Seats}} 
+                {{train.Reclining_Seats}} 
             </td>
             <td>
-                {{trainModel.Folding_Tables}}
+                {{train.Folding_Tables}}
             </td>
             <td>
-                {{trainModel.Disability}}
+                {{train.Disability}}
             </td>
             <td>
-                {{trainModel.Luggage_Storage}}
+                {{train.Luggage_Storage}}
             </td>
             <td>
-                {{trainModel.Vending_Machines}}
+                {{train.Vending_Machines}}
             </td>
             <td>
-                {{trainModel.Food_Service}}
+                {{train.Food_Service}}
             </td>
             <td>
-                {{trainModel.Train_Type}}
+                {{train.Train_Type}}
             </td>
         </tr>
     </table>
@@ -83,15 +82,13 @@
             <td> Crew_in_charge </td>
             <td> Condition </td>
         </tr>
-        {% for task in tasks %}
         <tr>
-            <td> {{task.Task_id}} </td>
-            <td> {{task.Task_name}} </td>
-            <td> {{task.Date}} </td>
-            <td> {{task.Crew_in_charge}} </td>
-            <td> {{task.Condition}} </td>
+            <td> {{tasks.Task_id}} </td>
+            <td> {{tasks.Task_name}} </td>
+            <td> {{tasks.Date}} </td>
+            <td> {{tasks.Crew_in_charge}} </td>
+            <td> {{tasks.Condition}} </td>
         </tr>
-        {% endfor %}
     </table>
 
 {% endblock %}

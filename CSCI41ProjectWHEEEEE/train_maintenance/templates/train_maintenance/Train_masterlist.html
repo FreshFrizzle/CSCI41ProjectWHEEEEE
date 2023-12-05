@@ -6,7 +6,39 @@
 
 {% block content %}
     <table>
-        {% for train in trains %}
+        <tr>
+            <td>
+                Max. Speed
+            </td>
+            <td>
+                No. of Seats
+            </td>
+            <td>
+                No. of Toilets
+            </td>
+            <td>
+                Has Reclining Seats 
+            </td>
+            <td>
+                Has Folding Tables
+            </td>
+            <td>
+                Has Disability Access
+            </td>
+            <td>
+                Has Luggage Storage
+            </td>
+            <td>
+                Has Vending Machines
+            </td>
+            <td>
+                Has Food Service
+            </td>
+            <td>
+                Train Type
+            </td>
+        </tr>
+        {% for train in train_model %}
         <tr>
             <td> <a href=""> {{train.Model}} </a> </td>
             <td>{{train.Max_Speed}}</td>
