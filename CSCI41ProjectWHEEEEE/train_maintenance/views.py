@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.views import View
-from CSCI41ProjectWHEEEEE.train_operator.models import TRAIN_MODEL
-from CSCI41ProjectWHEEEEE.train_maintenance.models import TASK, MAINTENANCE
+from train_operator.models import TRAIN_MODEL
+from train_maintenance.models import TASK, MAINTENANCE
 # Create your views here.
 
 
