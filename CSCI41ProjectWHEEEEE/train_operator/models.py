@@ -14,7 +14,7 @@ class TRAIN_MODEL(models.Model):
     No_of_Toilets = models.PositiveIntegerField(primary_key=False, default=0, validators=[MinValueValidator(0), MaxValueValidator(99)])
     Reclining_Seats = models.BooleanField(primary_key=False, default=False)
     Folding_Tables = models.BooleanField(primary_key=False, default=False)
-    Disability = models.BooleanField(primary_key=False, default=False)
+    Disability_Access = models.BooleanField(primary_key=False, default=False)
     Luggage_Storage = models.BooleanField(primary_key=False, default=False)
     Vending_Machines = models.BooleanField(primary_key=False,default=False)
     Food_Service = models.BooleanField(primary_key=False,default=False)

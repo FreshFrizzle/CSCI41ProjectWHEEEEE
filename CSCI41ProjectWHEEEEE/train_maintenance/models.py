@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import date, time
-from CSCI41ProjectWHEEEEE.train_operator.models import TRAIN
+from train_operator.models import TRAIN
 
 # Create your models here.
 class MAINTENANCE(models.Model):
