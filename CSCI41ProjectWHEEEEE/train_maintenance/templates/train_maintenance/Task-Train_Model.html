@@ -82,13 +82,15 @@
             <td> Crew_in_charge </td>
             <td> Condition </td>
         </tr>
+        {% for task in tasks %}
         <tr>
-            <td> {{tasks.Task_id}} </td>
-            <td> {{tasks.Task_name}} </td>
-            <td> {{tasks.Date}} </td>
-            <td> {{tasks.Crew_in_charge}} </td>
-            <td> {{tasks.Condition}} </td>
+            <td> {{task.Task_id}} </td>
+            <td> {{task.Task_name}} </td>
+            <td> {{task.Date}} </td>
+            <td> {{task.Crew_in_charge}} </td>
+            <td> {{task.Condition}} </td>
         </tr>
+        {% endfor%}
     </table>
 
 {% endblock %}

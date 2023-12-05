@@ -21,12 +21,18 @@ class TrainTasksView(View):
 
         #trainAll = TRAIN.objects.all()
 
-        trainHere = mtrain.select_related('train_id')[0]
-        taskHere = mtask.select_related('task_id')[0]
-        print(trainHere)
-        #tasks = mtask.objects.get(task_id=pk)
+        train_ids = mtrain.values_list('train_id', flat=True)
+        trainHere = TRAIN.objects.filter(Train_ID__in=train_ids)
+        modelss = trainHere.values_list('Model', flat=True)
+        trainMhere = TRAIN_MODEL.objects.filter(Model__in=modelss)
 
-        return render(request, 'train_maintenance/Task-Train_Model.html', {"tasks":taskHere, "train":trainHere})
+        task_ids = mtask.values_list('task_id', flat=True)
+        taskHere = TASK.objects.filter(Task_id__in=task_ids)
+        
+        print(taskHere)
+        print(MAINTENANCE_LOGS.objects.all())
+
+        return render(request, 'train_maintenance/Task-Train_Model.html', {"tasks":taskHere, "train":trainMhere[0]})
 
 def TaskMasterListView(request):
     return render(request, 'train_maintenance/Task_masterlist.html', {"tasks":TASK.objects.all()})
