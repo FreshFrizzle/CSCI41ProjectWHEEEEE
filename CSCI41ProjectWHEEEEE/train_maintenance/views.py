@@ -7,7 +7,9 @@ from train_maintenance.models import TASK, MAINTENANCE, MAINTENANCE_LOGS, MAINTE
 
 
 def MaintenanceListView(request):
-    return render(request, 'train_maintenance/Maintenance_Logs.html', {"Maintenance":MAINTENANCE.objects.all()})
+    postMaintenance = MAINTENANCE.objects.raw("SELECT * FROM train_maintenance_maintenance")
+
+    return render(request, 'train_maintenance/Maintenance_Logs.html', {"Maintenance":postMaintenance})
 
 class TrainTasksView(View):
     #list down the task for the given train model
@@ -35,10 +37,14 @@ class TrainTasksView(View):
         return render(request, 'train_maintenance/Task-Train_Model.html', {"tasks":taskHere, "train":trainMhere[0]})
 
 def TaskMasterListView(request):
-    return render(request, 'train_maintenance/Task_masterlist.html', {"tasks":TASK.objects.all()})
+    postTask = TASK.objects.raw("SELECT * FROM train_maintenance_task")
+
+    return render(request, 'train_maintenance/Task_masterlist.html', {"tasks":postTask})
 
 def TrainMasterListView(request):
-    return render(request, 'train_maintenance/Train_masterlist.html', {"trains":TRAIN.objects.all(), "train_model":TRAIN_MODEL.objects.all() })
+    postTrainM = TRAIN_MODEL.objects.raw("SELECT * FROM train_operator_train_model")
+
+    return render(request, 'train_maintenance/Train_masterlist.html', {"trains":TRAIN.objects.all(), "train_model":postTrainM})
 
 class TrainMaintenanceView(View):
     def get(self, request, pk):

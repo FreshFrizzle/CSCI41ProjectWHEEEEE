@@ -35,7 +35,7 @@ class TRAIN(models.Model):
 
 class ROUTE(models.Model):
     Route_ID = models.CharField(primary_key=True, max_length=3, default="001")
-    Train_Type = models.CharField(primary_key=False,max_length=2, default="L") 
+    Route_Type = models.CharField(primary_key=False,max_length=2, default="L") 
 
     def get_absolute_url(self):
         return '{}'.format(self.pk)
