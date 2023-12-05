@@ -2,6 +2,7 @@ from django.db import models
 from datetime import date, time
 from django.core.validators import MaxValueValidator, MinValueValidator 
 from django.db.models import Sum
+from CSCI41ProjectWHEEEEE.train_operator.models import TRAIN, ROUTE
 
 # Create your models here.
 class CUSTOMER(models.Model):
