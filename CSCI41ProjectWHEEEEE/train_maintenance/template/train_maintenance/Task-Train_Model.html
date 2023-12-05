@@ -11,62 +11,85 @@
         </tr>
         <tr>
             <td>
-
+                Max. Speed
+            </td>
+            <td>
+                No. of Seats
+            </td>
+            <td>
+                No. of Toilets
+            </td>
+            <td>
+                Has Reclining Seats 
+            </td>
+            <td>
+                Has Folding Tables
+            </td>
+            <td>
+                Has Disability Access
+            </td>
+            <td>
+                Has Luggage Storage
+            </td>
+            <td>
+                Has Vending Machines
+            </td>
+            <td>
+                Has Food Service
+            </td>
+            <td>
+                Train Type
             </td>
         </tr>
         <tr>
             <td>
-                Max_Speed
+                {{trainModel.Max_Speed}}
             </td>
             <td>
-                No_of_Seats
+                {{trainModel.No_of_Seats}}
             </td>
             <td>
-                No_of_Toilets
+                {{trainModel.No_of_Toilets}}
             </td>
             <td>
-                Reclining_Seats 
+                {{trainModel.Reclining_Seats}} 
             </td>
             <td>
-                Folding_Tables
+                {{trainModel.Folding_Tables}}
             </td>
             <td>
-                Disability
+                {{trainModel.Disability}}
             </td>
             <td>
-                Luggage_Storage
+                {{trainModel.Luggage_Storage}}
             </td>
             <td>
-                Vending_Machines
+                {{trainModel.Vending_Machines}}
             </td>
             <td>
-                Food_Service
+                {{trainModel.Food_Service}}
             </td>
             <td>
-                Train_Type
+                {{trainModel.Train_Type}}
             </td>
         </tr>
     </table>
 
     <table> 
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td> Task_id </td>
+            <td> Task_name </td>
+            <td> Date </td>
+            <td> Crew_in_charge </td>
+            <td> Condition </td>
         </tr>
-        {% for trainModel in trains %}
+        {% for task in tasks %}
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td> {{task.Task_id}} </td>
+            <td> {{task.Task_name}} </td>
+            <td> {{task.Date}} </td>
+            <td> {{task.Crew_in_charge}} </td>
+            <td> {{task.Condition}} </td>
         </tr>
         {% endfor %}
     </table>
